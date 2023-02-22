@@ -1,0 +1,48 @@
+---
+import Article from "../layouts/Article.astro";
+import * as path from "path";
+
+const { slug } = Astro.params;
+
+export async function getStaticPaths() {
+	const pages = await Astro.glob("../content/**/*");
+	const summary = (await Astro.glob("../content/meta/SUMMARY.mdx"))[0];
+
+	return pages.map(page => {
+		const url = page.url.replace("src/content", "");
+
+		return {
+			params: {
+				slug: path.dirname(url).substring(1) + "/" + path.parse(url).name
+			},
+			props: {
+				page,
+				summary: summary
+			}
+		}
+	})
+}
+
+
+const { page: { frontmatter: { title }, Content }, summary: Summary } = Astro.props;
+const date = (new Date()).toLocaleDateString("en-US");
+console.log(Summary);
+
+---
+
+<Article title={title || slug}>
+	<main>
+		<div class="summary">
+			<div class="summary-content">
+				<Summary.Content></Summary.Content>
+			</div>
+		</div>
+		<article>
+			<div class="row justify-between">
+				<h4>Published {date}</h4>
+				<a href="/">go back</a>
+			</div>
+			<Content></Content>
+		</article>
+	</main>
+</Article>

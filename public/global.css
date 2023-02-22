@@ -1,0 +1,458 @@
+@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400&display=swap);
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+}
+
+.gap-xs {
+  display: flex;
+  gap: 4px;
+}
+
+.gap-sm {
+  display: flex;
+  gap: 8px;
+}
+
+.gap-md {
+  display: flex;
+  gap: 12px;
+}
+
+.gap-lg {
+  display: flex;
+  gap: 16px;
+}
+
+.gap-xl {
+  display: flex;
+  gap: 24px;
+}
+
+/**
+	* Borders
+*/
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: "Open Sans", Monospace, Consolas, sans-serif;
+}
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #333;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  display: grid;
+  grid-template-rows: 80px auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+main article {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  padding: 60px 0;
+}
+main article a {
+  color: #56585d;
+  text-decoration: underline;
+  text-decoration-color: #3A86FF;
+  transition: color 0.4s ease;
+  display: inline-block;
+}
+main article a:hover {
+  color: #333;
+}
+main article p {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+main article strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  word-wrap: anywhere;
+  display: inline;
+}
+main article h1 {
+  color: #333;
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+main article h2 {
+  color: #333;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+main article h3 {
+  font-weight: 600;
+  margin: 30px 0 10px 0;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 32px;
+}
+main article h4 {
+  margin-bottom: 8px;
+}
+main article h6 {
+  font-weight: 600;
+}
+main article strong {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+main article blockquote {
+  margin: 10px 0 10px 40px;
+  position: relative;
+}
+main article blockquote::before {
+  content: '"';
+  font-size: 24px;
+  position: absolute;
+  left: -15px;
+  top: -5px;
+  font-family: Serif;
+}
+main article ul, main article ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+main article ol {
+  counter-reset: section;
+  list-style-type: none;
+}
+main article ol li {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+}
+main article ol li > ol {
+  margin-top: 8px;
+}
+main article ol li::before {
+  counter-increment: section;
+  content: counters(section, ".") ". ";
+}
+main article ul li {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+  list-style: none;
+}
+main article ul li > ul {
+  margin-top: 8px;
+}
+main article ul li::before {
+  content: "•";
+  color: #bbb;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+main article code {
+  background: #333;
+  color: #FFFCF2;
+  font-size: 22px;
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+main article pre code {
+  background: #111111;
+  line-height: 20px;
+  white-space: pre-wrap;
+  line-break: anywhere;
+}
+main article pre:hover .copy-code {
+  visibility: visible;
+  opacity: 1;
+}
+main article .copy-code {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  cursor: pointer;
+  color: #FFFCF2;
+  background: #252422;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-weight: 600;
+}
+main article .try-code-block {
+  background: #111111;
+  border-radius: 16px;
+}
+main article .try-code-block iframe {
+  width: 100%;
+  border: none;
+}
+main article pre {
+  background: #111111 !important;
+  padding: 20px 30px !important;
+  width: 100%;
+  left: -30px;
+  position: relative;
+  border-radius: 16px;
+  margin: 20px 0;
+}
+main article table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: var(--main-border);
+  border-bottom: var(--main-border);
+  margin: 30px 0 10px 0;
+}
+main article tbody td {
+  padding: 8px 12px;
+  text-align: left !important;
+  font-size: 22px;
+}
+main article thead {
+  background: #333;
+  color: #fafafa;
+}
+main article thead th {
+  padding: 8px 12px;
+  text-align: left !important;
+  border-bottom: var(--main-border);
+  font-size: 22px;
+  font-weight: 600;
+}
+main article td:not(:last-child),
+main article th:not(:last-child) {
+  border-right: var(--main-border);
+}
+main article .center:not(math) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main article .to-end {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main article .path-section {
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+main article .path-section div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+main article .path-link {
+  color: #CCC5B9;
+  cursor: pointer;
+  font-size: 12px;
+}
+main article .path-link:hover {
+  color: #403D39;
+}
+main article .next-separator {
+  color: #CCC5B9;
+  font-size: 12px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+main article .review-button {
+  cursor: pointer;
+}
+main article math.left {
+  text-align: left;
+}
+main article math.center {
+  text-align: center;
+}
+main article math.right {
+  text-align: right;
+}
+main article math.inline {
+  display: inline;
+}
+main article .deprecated,
+main article .note {
+  display: block;
+  background: rgba(255, 178, 56, 0.2);
+  padding: 20px 30px;
+  color: #252422;
+  border-left: 4px solid #ffb238;
+}
+main article .deprecated::before,
+main article .note::before {
+  font-weight: 600;
+  color: #252422;
+  margin-bottom: 4px;
+  position: relative;
+  display: block;
+}
+main article .deprecated::after {
+  font-weight: 400;
+  color: #252422;
+  position: relative;
+  display: block;
+}
+main article .note::before {
+  content: "Note:";
+}
+main article .deprecated {
+  background: rgba(245, 85, 54, 0.2);
+  border-left: 4px solid rgb(245, 85, 54);
+}
+main article .deprecated::before {
+  content: "Deprecation Warning:";
+}
+main article .deprecated:empty::after {
+  content: "Please be aware that this method is deprecated and should no longer be used, support has been dropped and it will receive no future updates.";
+}
+main .summary {
+  padding: 60px;
+  height: 100%;
+  width: 100%;
+}
+main .summary ul, main .summary ol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+main .summary ol {
+  counter-reset: section;
+  list-style-type: none;
+}
+main .summary ol li {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+}
+main .summary ol li > ol {
+  margin-top: 8px;
+}
+main .summary ol li::before {
+  counter-increment: section;
+  content: counters(section, ".") ". ";
+}
+main .summary ul li {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+  list-style: none;
+}
+main .summary ul li > ul {
+  margin-top: 8px;
+}
+main .summary ul li::before {
+  content: "•";
+  color: #bbb;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+main .summary a {
+  color: #56585d;
+  text-decoration: underline;
+  text-decoration-color: #3A86FF;
+  transition: color 0.4s ease;
+  display: inline-block;
+}
+main .summary a:hover {
+  color: #333;
+}
+main .summary p {
+  color: #56585d;
+  font-size: 22px;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+main .summary strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  word-wrap: anywhere;
+  display: inline;
+}
+main .summary h1 {
+  color: #333;
+  font-size: 64px;
+  margin-bottom: 24px;
+}
+main .summary h2 {
+  color: #333;
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+main .summary h3 {
+  font-weight: 600;
+  margin: 30px 0 10px 0;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+  font-weight: 700;
+  font-size: 32px;
+}
+main .summary h4 {
+  margin-bottom: 8px;
+}
+main .summary h6 {
+  font-weight: 600;
+}
+main .summary strong {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+main .summary blockquote {
+  margin: 10px 0 10px 40px;
+  position: relative;
+}
+main .summary blockquote::before {
+  content: '"';
+  font-size: 24px;
+  position: absolute;
+  left: -15px;
+  top: -5px;
+  font-family: Serif;
+}
+main .summary .summary-content {
+  position: sticky;
+  top: 60px;
+}
+main .summary ul, main .summary ol {
+  padding-left: 16px;
+}
